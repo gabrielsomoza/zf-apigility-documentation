@@ -77,7 +77,7 @@ class ApiFactory
                 }
 
                 $apigilityModules[] = array(
-                    'name'     => $moduleName,
+                    'name'     => str_replace('\\', '.', $moduleName),
                     'versions' => $versions,
                 );
             }
@@ -97,6 +97,8 @@ class ApiFactory
         $api = new Api;
 
         $api->setVersion($apiVersion);
+
+        $apiName = str_replace('.', '\\', $apiName);
         $api->setName($apiName);
 
         $serviceConfigs = array();

@@ -148,6 +148,17 @@ class ApiFactoryTest extends TestCase
         $this->assertCount(4, $api->getServices());
     }
 
+    public function testCreateNamespacedApi()
+    {
+        $api = $this->apiFactory->createApi('Test.Api', 1);
+        $this->assertInstanceOf('ZF\Apigility\Documentation\Api', $api);
+
+        $this->assertEquals('Test\\Api', $api->getName());
+        $this->assertEquals(1, $api->getVersion());
+        $this->assertCount(4, $api->getServices());
+        // TODO: $api will be empty at this point because there's no config for it in the module config files
+    }
+
     public function testCreateRestService()
     {
         $docConfig = include __DIR__ . '/TestAsset/module-config/documentation.config.php';
