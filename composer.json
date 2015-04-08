@@ -33,6 +33,9 @@
         "zfcampus/zf-configuration": "~1.0",
         "zfcampus/zf-content-negotiation": "~1.0"
     },
+    "replace": {
+      "zfcampus/zf-apigility-documentation": "1.0.*"
+    },
     "require-dev": {
         "fabpot/php-cs-fixer": "*@dev",
         "phpunit/PHPUnit": "3.7.*",
